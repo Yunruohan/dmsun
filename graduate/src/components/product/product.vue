@@ -25,15 +25,19 @@
         <div class="product-try-title">产品功能</div>
         <div class="product-details">
             <el-row style="margin:0 auto">
-                <el-col :span="5" v-for="(o, index) in 4" :key="o" :offset="index > 0 ? 1 : 0">
-                    <el-card :body-style="{ padding: '10px' }">
-                    <img src="../../assets/logo.jpg" class="image">
-                    <div style="padding: 0px;">
-                        <span>好吃的汉堡</span>
-                        <div class="bottom clearfix">
-                        <time class="time">{{ currentDate }}</time>
-                        <el-button type="text" class="button">操作按钮</el-button>
-                        </div>
+                <el-col :span="5" v-for="(item, index) in Funs" 
+                        :key="item.id" :offset="index > 0 ? 1 : 0"
+                >
+                    <el-card :body-style="{ padding: '0px' }">
+                    <div  @mouseover="item.show = false" @mouseleave="item.show = true">
+                        <img v-if="item.show" :src="item.url" class="image">
+                        <transition v-else name="el-zoom-in-bottom">
+                            <div class="funsNav">
+                                <div class="funsNav-title">{{item.title}}</div>
+                                <div class="funsNav-content">{{item.content}}</div>
+                                <el-button type="text" class="funsNav-button">立即体验</el-button>
+                            </div>
+                        </transition>
                     </div>
                     </el-card>
                 </el-col>
@@ -50,10 +54,21 @@
             return {
                 imgUrls: [
                     {id:1, url:require('../../assets/img/nav/nav3.jpeg')},
-                    {id:2, url:require('../../assets/img/nav/nav4.jpeg')},
+                    {id:2, url:require('../../assets/img/nav/nav4.jpg')},
                     {id:3, url:require('../../assets/img/nav/nav5.jpeg')},
+                    {id:4, url:require('../../assets/img/nav/nav4.jpeg')},
                 ],
-                currentDate: ''
+                currentDate: '',
+                Funs: [
+                    {id: 0, url:require('../../assets/img/nav/nav3.jpeg'), show: true,
+                     title: "心脏指数估计1", content: "我们采用大量的图片进行训练，目前的准确率可以达到百分之九十九"},
+                    {id: 1, url:require('../../assets/img/nav/nav3.jpeg'), show: true,
+                     title: "心脏指数估计2", content: "我们采用大量的图片进行训练，目前的准确率可以达到百分之九十九"},
+                    {id: 2, url:require('../../assets/img/nav/nav3.jpeg'), show: true,
+                     title: "心脏指数估计3", content: "我们采用大量的图片进行训练，目前的准确率可以达到百分之九十九"},
+                    {id: 3, url:require('../../assets/img/nav/nav3.jpeg'), show: true,
+                     title: "心脏指数估计2", content: "我们采用大量的图片进行训练，目前的准确率可以达到百分之九十九"}
+                ]
             }
         },
         methods: {
@@ -116,20 +131,11 @@
     .product-details {
         width: 100%;
         margin-top: 40px;
+        margin-left: 20px;
         .el-row {
-            width: 1400px;
+            width: 1250px;
             margin: 0 auto;
         }
-        .time {
-            font-size: 13px;
-            color: #999;
-        }
-        
-        .bottom {
-            margin-top: 13px;
-            line-height: 12px;
-        }
-
         .button {
             padding: 0;
             float: right;
@@ -138,7 +144,8 @@
         .image {
             width: 100%;
             display: block;
-            height: 250px;
+            height: 300px;
+            transition: all .7s;
         }
 
         .clearfix:before,
@@ -149,6 +156,28 @@
         
         .clearfix:after {
             clear: both
+        }
+        .funsNav {
+            width: 100%;
+            height: 300px;
+            background-color:rgba(0, 0, 0, 0.8);
+            color: #fff;
+            .funsNav-title {
+                padding: 40px 0;
+                text-align: center;
+                line-height: 2.0;
+                font-size: 24px;
+            }
+            .funsNav-content {
+                padding:0px  20px;
+                font-size: 14px;
+            }
+            .funsNav-button {
+                font-size: 14px;
+                color: #fff;
+                border-bottom: 1px solid #fff;
+                margin-left: 25%; 
+            }
         }
     }
     .footer {

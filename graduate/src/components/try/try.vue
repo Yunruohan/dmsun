@@ -11,7 +11,10 @@
                 <img :src="item.url" alt="">
                 <el-upload
                     class="upload-demo upload1"
-                    action=""
+                    :action="uploadInterface"
+                    :data="{
+                        content: 'picture'
+                    }"
                     drag
                     multiple>
                     <el-button>点击上传</el-button>
@@ -31,19 +34,34 @@
              </div>
             </el-carousel-item>
         </el-carousel>
+        <div class="pic_tip">
+            上传图片后这里将展示图片即结果
+        </div>
         <el-row>
-        <el-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
-            <el-card :body-style="{ padding: '0px' }">
-            <img src="" class="image">
-            <div style="padding: 14px;">
-                <span>好吃的汉堡</span>
-                <div class="bottom clearfix">
-                <time class="time">{{ currentDate }}</time>
-                <el-button type="text" class="button">操作按钮</el-button>
+            <el-col :span="8">
+                <el-card class="pic_show" :body-style="{ padding: '0px' }">
+                <img src="../../assets/logo.jpg" class="image">
+                <div style="padding: 14px;">
+                    <span>好吃的汉堡</span>
+                    <div class="bottom clearfix">
+                    <time class="time">{{ currentDate }}</time>
+                    <el-button type="text" class="button">操作按钮</el-button>
+                    </div>
                 </div>
-            </div>
-            </el-card>
-        </el-col>
+                </el-card>
+            </el-col>
+            <el-col :span="16">
+                <el-card class="pic_result" :body-style="{ padding: '0px' }">
+                <img src="../../assets/logo.jpg" class="image">
+                <div style="padding: 14px;">
+                    <span>好吃的汉堡</span>
+                    <div class="bottom clearfix">
+                    <time class="time">{{ currentDate }}</time>
+                    <el-button type="text" class="button">操作按钮</el-button>
+                    </div>
+                </div>
+                </el-card>
+            </el-col>
         </el-row>
     </div>
 </template>
@@ -53,10 +71,12 @@ export default{
         return {
             imgUrls: [
                 {id:1, url:require('../../assets/img/nav/nav3.jpeg')},
-                {id:2, url:require('../../assets/img/nav/nav4.jpeg')},
+                {id:2, url:require('../../assets/img/nav/nav4.jpg')},
                 {id:3, url:require('../../assets/img/nav/nav5.jpeg')},
+                {id:4, url:require('../../assets/img/nav/nav4.jpeg')},
             ],
-            currentDate: ''
+            currentDate: '',
+            uploadInterface: `api/pictures/upload`
         }
     }
 }
@@ -92,7 +112,7 @@ export default{
     .upload1 {
         z-index: 2;
         top: 45%;
-        left: 30%;
+        left: 25%;
         transform: translateY(-50%);
         font-size: 16px;
     }
@@ -107,7 +127,7 @@ export default{
     .upload2 {
         z-index: 2;
         top: 75%;
-        left: 40%;
+        left: 36%;
         transform: translateY(-50%);
         font-size: 16px;
     }
@@ -115,7 +135,7 @@ export default{
         width: 600px;
         z-index: 2;
         top: 44%;
-        left: 36%;
+        left: 34%;
         transform: translateY(-50%);
         font-size: 16px;
     }
@@ -126,6 +146,19 @@ export default{
     }
     .el-input__inner {
         height: 50px;
+    }
+    .pic_tip {
+        font-size: 30px;
+        text-align: center;
+        padding-top: 30px;
+    }
+    .el-card, .pic_show{
+        width: 500px;
+        margin: 40px;
+    }
+    .pic_result {
+        width: 1200px;
+        
     }
 }
 </style>

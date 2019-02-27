@@ -11,10 +11,10 @@
             <img src="../../assets/logo1.png">
             <el-menu-item index="/main/product">产品服务</el-menu-item>
             <el-menu-item index="1" @click="tryRouter">产品体验</el-menu-item>
-            <el-menu-item index="2">开发资源</el-menu-item>
+            <el-menu-item index="/main/resource">开发资源</el-menu-item>
             <el-menu-item index="3">使用说明</el-menu-item>
             <el-menu-item index="4">合作伙伴</el-menu-item>
-            <el-menu-item index="5" @click="tryRouter">个人中心</el-menu-item>
+            <el-menu-item index="5" @click="userRouter">个人中心</el-menu-item>
             <el-menu-item v-if="mark" style="margin-left:100px" index="/login">登录</el-menu-item>
             <el-menu-item v-if="mark" index="/register">注册</el-menu-item>
         </el-menu>
@@ -39,6 +39,13 @@ export default {
             }else {
                 this.$router.push('/main/try')
             }
+        },
+        userRouter() {
+            if(this.$store.state.validate === 0) {
+                this.$router.push('/login')
+            }else {
+                this.$router.push('/main/user')
+            }
         }
     }
 }
@@ -56,6 +63,7 @@ export default {
         width: 180px;
         height: 55px;
         float: left;
+        margin-left: 70px;
     }
 }
 </style>
