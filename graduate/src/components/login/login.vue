@@ -1,7 +1,7 @@
 <template>
     <div id='login'>
        <div class="login_input">
-        <div class="login_input_title">云若寒工作室</div>
+        <div class="login_input_title">心脏指数预测估计平台</div>
         <el-form ref="login_form" :model="form" :rules="loginRules">
             <el-form-item label="用户名" prop="username">
                 <el-input
@@ -87,14 +87,14 @@
 <style lang='scss'>
 #login {
     width: 100%;
-    height: 1000px;
+    height: 700px;
     position: relative;
     background: url('../../assets/img/login/login-bg.png') 0 0 no-repeat #f7f7f7;
     background-size: cover;
     background-position: 100% top;
     overflow: auto;
     .login_input {
-        width: 400px;
+        width: 300px;
         color: #fff;
         position: absolute;
         top: 20%;
@@ -106,11 +106,12 @@
           content: '';
         }
         .login_input_title {
+            width: 500px;
             font-size: 40px;
             margin-bottom: 50px;
         }
         .submit-btn {
-          width:154px;height:40px;background-color:#FFD641;color:#3578FF;font-size:20px;border-radius:4px;display:flex;
+          width:100px;height:40px;background-color:#FFD641;color:#3578FF;font-size:20px;border-radius:4px;display:flex;
           float: left;
           margin-left:25px;
           justify-content: center;align-items: center;cursor:pointer;

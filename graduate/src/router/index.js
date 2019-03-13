@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import login from '@/components/login/login'
 import mainGrad from '@/components/main/mainGrad'
-import products from '@/components/product/product'
+import product from '@/components/product/product'
 import Try from '@/components/try/try'
 import resource from '@/components/resource/resource'
 import user from '@/components/user/user'
@@ -15,12 +15,13 @@ export default new Router({
       path: '/',
       name: 'mainGrad',
       component: mainGrad,
+      redirect: '/main/product',
       children: [
-       {
-         path: '/main/product',
-         name: 'product',
-         component: products
-       },
+        {
+          path: '/main/product',
+          name: 'product',
+          component: product
+        },
        {
          path: '/main/try',
          name: 'Try',

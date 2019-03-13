@@ -9,8 +9,8 @@
             router 
             >
             <img src="../../assets/logo1.png">
-            <el-menu-item index="/main/product">产品服务</el-menu-item>
-            <el-menu-item index="1" @click="tryRouter">产品体验</el-menu-item>
+            <el-menu-item index="/">产品服务</el-menu-item>
+            <el-menu-item @click="tryRouter">产品体验</el-menu-item>
             <el-menu-item index="/main/resource">开发资源</el-menu-item>
             <el-menu-item index="3">使用说明</el-menu-item>
             <el-menu-item index="4">合作伙伴</el-menu-item>

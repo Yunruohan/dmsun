@@ -10,10 +10,10 @@
              <div class="carousel-box">
                 <img :src="item.url" alt="">
                 <div class="el-carousel__item_content location">
-                    心脏指数预测估计
+                    心脏指数预测估计平台
                 </div>
                 <div class="el-carousel__item_info location">
-                    基于深度学习及大规模图像训练，准确识别图片中的心脏指数
+                    基于深度学习及大规模图像训练，准确预测图片中的心脏指数
                 </div>
                 <div class="el-carousel__item_btn location">
                     <el-button @click="tryRouter">立即体验</el-button>
@@ -94,27 +94,20 @@
     .location{
         position: absolute;
     }
-    .el-carousel__item_content {
+    .el-carousel__item_content, .el-carousel__item_info,  .el-carousel__item_btn{
         z-index: 2;
         top: 30%;
-        left: 40%;
-        transform: translateY(-50%);
+        left: 50%;
+        transform: translateX(-50%);
         font-size: 40px;
         color: #fff;
     }
     .el-carousel__item_info {
-        z-index: 2;
         top: 45%;
-        left: 38%;
-        transform: translateY(-50%);
         font-size: 16px;
-        color: #fff;
     }
     .el-carousel__item_btn {
-        z-index: 2;
         top: 80%;
-        left: 41%;
-        transform: translateY(-50%);
     }
     .el-button {
         width: 116px;

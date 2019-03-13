@@ -8,9 +8,11 @@
 </template>
 <script>
   import top from '../top/top'
+  import product from '../product/product'
   export default {
       components: {
-          top: top
+          top: top,
+          product: product
       },
       data () {
           return {
