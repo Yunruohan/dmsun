@@ -48,14 +48,15 @@
                     <span>点击可查看预测结果</span>
                     <div class="bottom clearfix">
                     <time class="time">{{ currentDate }}</time>
-                    <el-button type="text" class="button">查看</el-button>
+                    <el-button type="text" class="button" @click="hogGet()">查看hog特征提取图</el-button>
+                    <el-button type="text" class="button" @click="predict()">查看预测指数</el-button>
                     </div>
                 </div>
                 </el-card>
             </el-col>
             <el-col :span="16">
                 <el-card class="pic_result" :body-style="{ padding: '0px' }">
-                <img src="../../assets/logo.jpg" class="image">
+                <img :src="base64_data" class="image">
                 <div style="padding: 14px;">
                     <span>若体验上有不足可以点此写出自己的需求 以便我们做出改进</span>
                     <div class="bottom clearfix">
@@ -69,6 +70,7 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default{
     data () {
         return {
@@ -81,18 +83,46 @@ export default{
             currentDate: '',
             uploadInterface: `api/pictures/upload`,
             imgShow: '',
-            Isshow: false
+            Isshow: false,
+            base64_data: ''
 
         }
     },
     created() {
-
+        this.tryRouter()
     },
     methods: {
+        tryRouter() {
+            if(this.$store.state.validate === 0) {
+                this.$router.push('/login')
+            }
+        },
         imgSuccess(response, file, fileList) {
             console.log(response)
             this.Isshow = true
             this.imgShow = response.data.url
+        },
+        hogGet() {
+            let params = {
+                url: this.imgShow
+            }
+            axios.get('/host/hogGet', {
+                params
+            }).then((res) => {
+                console.log(res.data)
+                this.base64_data = "data:image/jpg;base64," + res.data
+            })
+        },
+        predict() {
+            let params = {
+                url: this.imgShow
+            }
+            axios.get('/host/predict', {
+                params
+            }).then((res) => {
+                console.log(typeof(res.data))
+                console.log(res.data[0])
+            })
         }
     }
 }

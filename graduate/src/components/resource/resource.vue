@@ -8,12 +8,13 @@
             background-color="#f5f6f9"
             text-color="#000"
             width="20%"
+            router
             active-text-color="#000"
         >
-            <el-submenu index="1">
+            <!-- <el-submenu index='/main/resource/hog'>
                 <template slot="title">
                     <i class="el-icon-location"></i>
-                    <span>导航一</span>
+                    <span>Hog特征</span>
                 </template>
                 <el-menu-item-group>
                     <template slot="title">分组一</template>
@@ -27,23 +28,31 @@
                     <template slot="title">选项4</template>
                     <el-menu-item index="1-4-1">选项1</el-menu-item>
                 </el-submenu>
-            </el-submenu>
-            <el-menu-item index="2">
+            </el-submenu> -->
+            <el-menu-item index='/main/resource/hog'>
+                <i class="el-icon-location"></i>
+                <span>Hog</span>
+            </el-menu-item>
+            <el-menu-item index='/main/resource/DBN'>
                 <i class="el-icon-menu"></i>
-                <span slot="title">导航二</span>
+                <span slot="title">DBN</span>
             </el-menu-item>
-            <el-menu-item index="3" disabled>
+            <el-menu-item index='/main/resource/Keras'>
                 <i class="el-icon-document"></i>
-                <span slot="title">导航三</span>
+                <span slot="title">Keras</span>
             </el-menu-item>
-            <el-menu-item index="4">
+            <el-menu-item index='/main/resource/CNN'>
                 <i class="el-icon-setting"></i>
-                <span slot="title">导航四</span>
+                <span slot="title">CNN</span>
+            </el-menu-item>
+             <el-menu-item index="/main/resource/Tensorflow">
+                <i class="el-icon-setting"></i>
+                <span slot="title">Tensorflow</span>
             </el-menu-item>
         </el-menu>
       </el-col>
       <el-col :span="20">
-          <router-view></router-view>
+          <router-view/>
       </el-col>
      </el-row>
     </div>

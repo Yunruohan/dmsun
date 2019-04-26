@@ -17,6 +17,13 @@ module.exports = {
         pathRewrite: {
           '^/api': '/'
         }
+      },
+      '/host': {
+        target: 'http://172.100.108.112:8088',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/host': '/'
+        }
       }
     },
 

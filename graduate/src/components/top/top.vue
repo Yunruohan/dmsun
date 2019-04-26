@@ -8,19 +8,19 @@
             mode="horizontal"
             router 
             >
-            <img src="../../assets/logo1.png">
+            <img src="../../assets/logo2.png">
             <el-menu-item index="/">产品服务</el-menu-item>
-            <el-menu-item @click="tryRouter">产品体验</el-menu-item>
+            <el-menu-item index="/main/try">产品体验</el-menu-item>
             <el-menu-item index="/main/resource">开发资源</el-menu-item>
-            <el-menu-item index="3">使用说明</el-menu-item>
-            <el-menu-item index="4">合作伙伴</el-menu-item>
-            <el-menu-item index="5" @click="userRouter">个人中心</el-menu-item>
+            <el-menu-item index="/main/api">使用说明</el-menu-item>
+            <el-menu-item index="/main/parter">联系我们</el-menu-item>
+            <el-menu-item index="/main/user">个人中心</el-menu-item>
             <el-menu-item v-if="mark" style="margin-left:100px" index="/login">登录</el-menu-item>
             <el-menu-item v-if="mark" index="/register">注册</el-menu-item>
         </el-menu>
     </div>
 </template>
-<<script>
+<script>
 export default {
     data() {
         return {
@@ -33,20 +33,6 @@ export default {
         }
     },
     methods: {
-        tryRouter() {
-            if(this.$store.state.validate === 0) {
-                this.$router.push('/login')
-            }else {
-                this.$router.push('/main/try')
-            }
-        },
-        userRouter() {
-            if(this.$store.state.validate === 0) {
-                this.$router.push('/login')
-            }else {
-                this.$router.push('/main/user')
-            }
-        }
     }
 }
 </script>

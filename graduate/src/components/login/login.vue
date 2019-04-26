@@ -11,7 +11,7 @@
             </el-form-item>
              <el-form-item label="密码" prop="password">
                 <el-input
-                    type="text"
+                    type="password"
                     v-model="form.password">
                 </el-input>
             </el-form-item>
@@ -87,20 +87,20 @@
 <style lang='scss'>
 #login {
     width: 100%;
-    height: 700px;
+    height: 100vh;
     position: relative;
-    background: url('../../assets/img/login/login-bg.png') 0 0 no-repeat #f7f7f7;
+    background: url('../../assets/img/login/background.jpeg') 0 0 no-repeat #f7f7f7;
     background-size: cover;
     background-position: 100% top;
     overflow: auto;
     .login_input {
         width: 300px;
-        color: #fff;
+        color: #000;
         position: absolute;
         top: 20%;
         left: 23.43%;
         .el-form-item__label {
-            color: #ffd;
+            color: #000;
         }
         .el-form-item__label:before,.el-form-item__label:after {
           content: '';
@@ -111,7 +111,7 @@
             margin-bottom: 50px;
         }
         .submit-btn {
-          width:100px;height:40px;background-color:#FFD641;color:#3578FF;font-size:20px;border-radius:4px;display:flex;
+          width:100px;height:40px;background-color: blueviolet;color:rgb(239, 241, 247);font-size:20px;border-radius:4px;display:flex;
           float: left;
           margin-left:25px;
           justify-content: center;align-items: center;cursor:pointer;
