@@ -58,10 +58,10 @@
                 <el-card class="pic_result" :body-style="{ padding: '0px' }">
                 <img :src="base64_data" class="image">
                 <div style="padding: 14px;">
-                    <span>若体验上有不足可以点此写出自己的需求 以便我们做出改进</span>
+                    <span>若体验上有不足可以点击评论写出自己的需求 以便我们做出改进</span>
                     <div class="bottom clearfix">
                     <time class="time">{{ currentDate }}</time>
-                    <el-button type="text" class="button">评价</el-button>
+                    <el-button @click="comment()" type="text" class="button">评论</el-button>
                     </div>
                 </div>
                 </el-card>
@@ -123,6 +123,9 @@ export default{
                 console.log(typeof(res.data))
                 console.log(res.data[0])
             })
+        },
+        comment() {
+            this.$router.push('/main/parter')
         }
     }
 }
