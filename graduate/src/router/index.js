@@ -7,7 +7,6 @@ import Try from '@/components/try/try'
 import resource from '@/components/resource/resource'
 import user from '@/components/user/user'
 
-import CNN from '@/components/resource/resourceRight/CNN.vue'
 import DBN from '@/components/resource/resourceRight/DBN'
 import Hog from '@/components/resource/resourceRight/Hog'
 
@@ -57,11 +56,6 @@ export default new Router({
               path: '/main/resource/Keras',
               name: 'Keras',
               component: Keras
-           },
-           {
-              path: '/main/resource/CNN',
-              name: 'CNN',
-              component: CNN
            },
            {
               path: '/main/resource/Tensorflow',

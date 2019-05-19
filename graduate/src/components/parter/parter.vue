@@ -27,7 +27,7 @@
                     >
                     </el-input>
                     <div class="parter-content-text-submit">
-                        <el-button type="primary">提交</el-button>
+                        <el-button type="primary" @click="submit()">提交</el-button>
                     </div>
                 </div>
                 <div v-if="radio1 == 2" class="parter-content-text-input">
@@ -71,6 +71,17 @@ export default {
             contact_company: '',
             contact_name: '',
             textarea1: ''
+        }
+    },
+    created() {
+
+    },
+    methods: {
+        submit() {
+            this.$message({
+                showClose: true,
+                message: '已成功提交您的信息'
+            });
         }
     }
 }

@@ -8,7 +8,7 @@
                 v-for="item in imgUrls" :key="item.id" arrow="always"
             >
              <div class="carousel-box">
-                <img :src="item.url" alt="">
+                <img style="width:100%" :src="item.url" alt="">
                 <div class="carousel-box-upload">
                     <el-upload
                         class="upload-demo upload1"
@@ -40,30 +40,42 @@
         <div class="pic_tip">
             上传图片后这里将展示图片即结果
         </div>
-        <el-row class="try_result" v-show="Isshow">
-            <el-col :span="8">
+        <el-row v-show="Isshow">
+            <el-col :span="6">
                 <el-card class="pic_show" :body-style="{ padding: '0px' }">
                 <img :src="imgShow" class="image">
-                <div style="padding: 14px;">
-                    <span>点击可查看预测结果</span>
-                    <div class="bottom clearfix">
-                    <time class="time">{{ currentDate }}</time>
-                    <el-button type="text" class="button" @click="hogGet()">查看hog特征提取图</el-button>
+                <div style="padding: 5px;">
                     <el-button type="text" class="button" @click="predict()">查看预测指数</el-button>
-                    </div>
                 </div>
                 </el-card>
             </el-col>
-            <el-col :span="16">
+            <el-col :span="18">
                 <el-card class="pic_result" :body-style="{ padding: '0px' }">
-                <img :src="base64_data" class="image">
-                <div style="padding: 14px;">
-                    <span>若体验上有不足可以点击评论写出自己的需求 以便我们做出改进</span>
-                    <div class="bottom clearfix">
-                    <time class="time">{{ currentDate }}</time>
-                    <el-button @click="comment()" type="text" class="button">评论</el-button>
+                    <h3 style="text-align:center">预测结果展示</h3>
+                    <el-table
+                        :data="tableData"
+                    >
+                        <el-table-column prop="P1" label="A-cav"></el-table-column>
+                        <el-table-column prop="P2" label="A-myo"></el-table-column>
+                        <el-table-column prop="P3" label="dim1"></el-table-column>
+                        <el-table-column prop="P4" label="dim2"></el-table-column>
+                        <el-table-column prop="P5" label="dim3"></el-table-column>
+                        <el-table-column prop="P6" label="A"></el-table-column>
+                        <el-table-column prop="P7" label="AS"></el-table-column>
+                        <el-table-column prop="P8" label=IS></el-table-column>
+                        <el-table-column prop="P9" label="I"></el-table-column>
+                        <el-table-column prop="P10" label="IL"></el-table-column>
+                        <el-table-column prop="P11" label="AL"></el-table-column>
+                    </el-table>
+                    <div style="padding: 14px;">
+                        <p>
+                            说明：列表中的数据依次为心肌面积、心腔面积、腔体三尺寸、六个区域壁厚
+                        </p>
+                        <span>若体验上有不足可以点击评论写出自己的需求 以便我们做出改进</span>
+                        <div class="bottom clearfix">
+                            <el-button @click="comment()" type="text" class="button">评论</el-button>
+                        </div>
                     </div>
-                </div>
                 </el-card>
             </el-col>
         </el-row>
@@ -82,10 +94,21 @@ export default{
             ],
             currentDate: '',
             uploadInterface: `api/pictures/upload`,
-            imgShow: '',
-            Isshow: false,
-            base64_data: ''
-
+            imgShow: 'http://120.79.17.239/1009/1d406800-79d5-11e9-8a77-00163e021e9c.png',
+            Isshow: true,
+            tableData: [
+              { P1: '',
+                P2: '',
+                P3: '',
+                P4: '',
+                P5: '',
+                P6: '',
+                P7: '',
+                P8: '',
+                P9: '',
+                P10: '',
+                P11: ''}
+            ]
         }
     },
     created() {
@@ -153,9 +176,9 @@ export default{
             }
         }
     }
-    img{
+    .image{
         width: 100%;
-        height: 500px;
+        height: 245px;
     }
     .location, .upload-demo, .upload_input, .carousel-box-upload{
         position: absolute;
@@ -181,12 +204,10 @@ export default{
         padding-top: 30px;
     }
     .el-card, .pic_show{
-        width: 400px;
-        margin: 40px;
+        margin: 20px;
     }
     .pic_result {
-        width: 760px;
-        
+        width: 100%;
     }
 }
 </style>

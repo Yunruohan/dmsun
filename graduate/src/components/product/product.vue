@@ -63,8 +63,8 @@
                 ],
                 currentDate: '',
                 Funs: [
-                    {id: 0, url:require('../../assets/index/LV.jpg'), show: true, target: "获取图像的直方图",
-                     title: "Hog特征的提取", content: "本次Hog提取采用的Gamma值为0.5，"},
+                    {id: 0, url:require('../../assets/index/hog.png'), show: true, target: "获取图像的直方图",
+                     title: "Hog特征的提取", content: "本次Hog提取采用的Gamma值为0.5"},
                     {id: 1, url:require('../../assets/index/A-myo-cav.jpg'), show: true, target: "心肌与心腔面积预测",
                      title: "心肌与心腔面积预测", content: "我们采用大量的图片进行训练，目前的准确率可以达到百分之九十九"},
                     {id: 2, url:require('../../assets/index/dim.jpg'), show: true, target: "腔体的三个尺寸预测",

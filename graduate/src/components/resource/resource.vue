@@ -41,14 +41,6 @@
                 <i class="el-icon-document"></i>
                 <span slot="title">Keras</span>
             </el-menu-item>
-            <el-menu-item index='/main/resource/CNN'>
-                <i class="el-icon-setting"></i>
-                <span slot="title">CNN</span>
-            </el-menu-item>
-             <el-menu-item index="/main/resource/Tensorflow">
-                <i class="el-icon-setting"></i>
-                <span slot="title">Tensorflow</span>
-            </el-menu-item>
         </el-menu>
       </el-col>
       <el-col :span="20">
